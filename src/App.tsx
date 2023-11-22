@@ -1,4 +1,7 @@
+import { ApolloProvider } from '@apollo/client';
 import { HashRouter, Route, Routes } from 'react-router-dom';
+import client from './apolloClient';
+
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
@@ -14,7 +17,9 @@ export function App() {
 export function WrappedApp() {
   return (
     <HashRouter>
-      <App />
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
     </HashRouter>
   );
 }
